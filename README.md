@@ -18,3 +18,6 @@ regexs：  正则表达式，以逗号隔开
 howmanydays：删除/清除几天前的日志
 isRemove：是否删除文件，不删除则清空。0是删除，1是清除
 ```
+
+# [打赏]()
+![avatar](https://github.com/yanchunhuo/resources/blob/master/Alipay.jpg)
