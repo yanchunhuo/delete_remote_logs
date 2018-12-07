@@ -26,7 +26,9 @@ class SSHClient():
     def _getSFTPClient(self):
         return self._sftpclient
 
-    def ssh_exec_command(self,command,timeout=60):
+    def ssh_exec_command(self,command,timeout=60,is_source_profile=1):
+        if int(is_source_profile)==1:
+            command='source /etc/profile;'+command
         stdin, stdout, stderr=self._sshclient.exec_command(command=command,timeout=timeout)
         channel = stdout.channel
         exit_code = channel.recv_exit_status()
