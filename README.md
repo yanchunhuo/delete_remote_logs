@@ -2,11 +2,11 @@
 ### 一、安装依赖库
 - pip install -r requirements.txt
 
-### 一、使用说明
+### 二、使用说明
 - 根据实际情况修改Info文件
 - python runRemoteDelLogs.py 删除或清除远程服务器的日志
 
-### 二、注意
+### 三、注意
 - Info文件的数据以双管道符“||”拼接：IP||username||passwd||dirs||regexs||howmanydays||isRemove
 
 ```
