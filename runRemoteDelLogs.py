@@ -11,7 +11,8 @@ class RemoteDelLogs():
         '''
         with open('Info','r') as f:
             for line in f.readlines():
-                if line != '\n':
+                if '#' not in line:
+                    line=line.replace('\n','')
                     line = line.split('||')
                     ip = line[0]
                     username = line[1]
@@ -19,22 +20,21 @@ class RemoteDelLogs():
                     dir = line[3]
                     regexs = line[4]
                     howmanydays = line[5]
-                    isRemove = line[6]
+                    isRemoveFile = line[6]
+                    isRemoveDirs = line[7]
                     self._sshclient = SSHClient(ip, username, passwd)
-                    execute_command = "cd /hskj/scripts && python deleteLogs.py "+dir+' '+regexs+' '+howmanydays+' '+isRemove
+                    execute_command = "cd /hskj/scripts && python deleteLogs.py "+dir+' '+regexs+' '+howmanydays+' '+isRemoveFile+' '+isRemoveDirs
                     stdin, stdout, stderr, exit_code = self._sshclient.ssh_exec_command("mkdir -p /hskj/scripts")
                     if exit_code:
-                        print "Mkdir Fail!"+'\r\n'+stderr.read()
-                        continue
+                        print "mkdir /hskj/scripts fail!"+'\r\n'+stderr.read()
                     self._sshclient.sftp_put('deleteLogs.py', os.path.join('/hskj/scripts', "deleteLogs.py"))
                     stdin, stdout, stderr, exit_code=self._sshclient.ssh_exec_command(execute_command)
                     if exit_code:
-                        print "Execute Fail!"+'\r\n'+stderr.read()
-                        continue
+                        print "execute python deleteLogs.py fail!"+'\r\n'+stderr.read()
                     delscript_command = "cd /hskj/scripts && rm -rf deleteLogs.py"
                     stdin, stdout, stderr, exit_code = self._sshclient.ssh_exec_command(delscript_command)
                     if exit_code:
-                        print "Delete Scripts Fail!" + '\n' + stderr.read()
+                        print "delete deleteLogs.py fail!" + '\n' + stderr.read()
                     self._sshclient.closeSSHAndSFTP()
 
 if __name__=='__main__':
