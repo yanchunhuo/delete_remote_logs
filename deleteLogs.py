@@ -29,7 +29,7 @@ class DeleteLogs():
                         os.remove(filePath)
                 for dir in dirs:
                     dirPath =  os.path.join(path,dir)
-                    mtime = os.path.getmtime(dirs)
+                    mtime = os.path.getmtime(dirPath)
                     nowtime = time.time()
                     interval = (nowtime - mtime) / 3600 / 24
                     if interval > howmanydays:
