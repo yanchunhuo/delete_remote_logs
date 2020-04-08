@@ -1,0 +1,4 @@
+*.log*
+*.idea*
+*.pyc*
+*.vscode*
