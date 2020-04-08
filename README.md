@@ -1,6 +1,6 @@
 ## 使用方法
 ### 一、安装依赖库
-- pip install -r requirements.txt
+- pip3 install -r requirements.txt
 
 ### 二、使用说明
 - 根据实际情况修改Info文件
