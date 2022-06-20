@@ -1,0 +1,2 @@
+# 当前项目执行主机的免密秘钥路径
+private_key_file_path: /root/.ssh/id_rsa
