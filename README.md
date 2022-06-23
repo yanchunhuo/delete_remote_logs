@@ -23,7 +23,8 @@
 # [进交流群]()
 ![avatar](https://github.com/yanchunhuo/resources/blob/master/wechat.png)
 
+[![Stargazers over time](https://starchart.cc/yanchunhuo/delete_remote_logs.svg)](https://starchart.cc/yanchunhuo/delete_remote_logs)
 
-[![Stargazers over time](https://starchart.cc/yanchunhuo/AutomationTest.svg)](https://starchart.cc/yanchunhuo/AutomationTest)
+
 
 
