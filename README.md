@@ -20,6 +20,10 @@
 - directory 目录内的文件
 - symbolic link
 
+# [进交流群]()
+![avatar](https://github.com/yanchunhuo/resources/blob/master/wechat.png)
 
+
+[![Stargazers over time](https://starchart.cc/yanchunhuo/AutomationTest.svg)](https://starchart.cc/yanchunhuo/AutomationTest)
 
 
