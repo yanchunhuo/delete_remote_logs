@@ -8,7 +8,7 @@ del_logs:
     - is_del_dir: false
       # 文件或目录路径
       file_path: 
-      # 要删除的文件后缀，不可为空（避免删除有用数据），仅当is_del_dir为true时生效
+      # 要删除的文件后缀，不可为空（避免删除有用数据），仅当is_del_dir为true时生效，支持正则表达
       filename_suf: .log
       # 删除几天未操作的文件，-1：不做校验直接删除，n：多少天前
       del_how_day_ago: -1

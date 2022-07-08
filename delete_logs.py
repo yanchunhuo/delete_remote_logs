@@ -3,11 +3,12 @@
 # @author yanchunhuo
 # @description 
 # @created 2022-06-17T19:52:23.166Z+08:00
-# @last-modified 2022-06-20T17:55:46.875Z+08:00
+# @last-modified 2022-07-08T17:41:12.746Z+08:00
 # github https://github.com/yanchunhuo
 from common.dateTimeTool import DateTimeTool
 from common.sshClient import SSHClient
 from ruamel import yaml
+import re
 
 class Delete_Logs:
     def __init__(self,specify_host:str=None) -> None:
@@ -71,7 +72,11 @@ class Delete_Logs:
             stdin, stdout, stderr, exit_code=sshClient.ssh_exec_command(file_type_command)
             file_type=stdout.read().decode('utf-8').strip()
             if not 'directory'==file_type and file_type in ['regular empty file','regular file','symbolic link']:
+                pattern='.*%s$'%filename_suf
+                is_match=re.match(pattern,file_path)
                 if file_path.endswith(filename_suf):
+                    log_file_paths.append(file_path)
+                elif is_match:
                     log_file_paths.append(file_path)
             else:
                 self._get_dir_all_meet_condition_log_file_paths(sshClient=sshClient,log_file_paths=log_file_paths,dir_path=file_path,filename_suf=filename_suf)
